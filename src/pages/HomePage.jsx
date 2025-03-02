@@ -1,7 +1,8 @@
-import { MapPin } from "lucide-react"
-import NavBar from "../components/NavBar"
-import RideOptions from "../components/RideOptions"
-import { Button } from "../components/ui/button"
+import { Link } from "react-router-dom";
+import { MapPin } from "lucide-react";
+import NavBar from "../components/NavBar";
+import RideOptions from "../components/RideOptions";
+import { Button } from "../components/ui/button";
 
 function HomePage() {
   return (
@@ -21,8 +22,8 @@ function HomePage() {
           {/* Overlay buttons */}
           <div className="absolute bottom-16 left-0 right-0 flex flex-col items-center gap-4">
             {/* Primary options */}
-            <div className="flex items-center gap-3 bg-white rounded-full p-1 shadow-lg">
-              <Button className="rounded-full bg-emerald-500 hover:bg-emerald-600">
+            <div className="flex items-center gap-3 bg-white rounded-full p-2 shadow-lg">
+              <Button className="rounded-full bg-emerald-500 hover:bg-emerald-600 flex items-center px-4 py-2">
                 <svg
                   className="h-5 w-5 mr-2"
                   viewBox="0 0 24 24"
@@ -31,28 +32,34 @@ function HomePage() {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
+                  aria-label="Search icon"
                 >
                   <circle cx="11" cy="11" r="8" />
                   <path d="m21 21-4.3-4.3" />
                 </svg>
-                Ride-Sharing
+                Find a Ride
               </Button>
-              <Button variant="ghost" className="rounded-full text-gray-700">
+              <Button variant="ghost" className="rounded-full text-gray-700 px-4 py-2">
                 Fare Splitting
               </Button>
             </div>
 
             {/* Secondary options */}
             <div className="flex flex-wrap justify-center gap-2 mt-2">
-              <Button variant="ghost" className="bg-white/80 hover:bg-white rounded-full text-gray-700">
-                Ride-Sharing
+              <Button className="rounded-full bg-emerald-500 hover:bg-emerald-600 px-4 py-2">
+                Scheduling
               </Button>
-              <Button className="rounded-full bg-emerald-500 hover:bg-emerald-600">Ride-Sharing</Button>
-              <Button className="rounded-full bg-emerald-500 hover:bg-emerald-600">Scheduling</Button>
-              <Button variant="ghost" className="bg-white/80 hover:bg-white rounded-full text-gray-700">
-                Fare Splitting
+              <Button variant="ghost" className="bg-white/80 hover:bg-white rounded-full text-gray-700 px-4 py-2">
+                Ride Sharing
               </Button>
             </div>
+
+            {/* Login Button */}
+            <Link to="/login">
+              <Button className="rounded-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2">
+                Login
+              </Button>
+            </Link>
           </div>
         </div>
 
@@ -62,15 +69,14 @@ function HomePage() {
 
       {/* Location pin */}
       <div className="absolute top-32 right-8 z-10">
-        <MapPin className="h-12 w-12 text-white drop-shadow-lg" />
+        <MapPin className="h-12 w-12 text-white drop-shadow-lg" aria-label="Location Pin" />
       </div>
 
       {/* Decorative elements */}
-      <div className="absolute bottom-0 left-0 w-24 h-48 bg-green-300 rounded-tr-full"></div>
-      <div className="absolute bottom-0 right-0 w-24 h-48 bg-yellow-300 rounded-tl-full"></div>
+      <div className="absolute bottom-0 left-0 w-20 h-40 bg-green-300 rounded-tr-full"></div>
+      <div className="absolute bottom-0 right-0 w-20 h-40 bg-yellow-300 rounded-tl-full"></div>
     </main>
-  )
+  );
 }
 
-export default HomePage
-
+export default HomePage;
